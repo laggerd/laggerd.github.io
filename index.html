@@ -3,16 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title></title>
+    <title>Web Player</title>
     <style>
       .emscripten { padding-right: 0; margin-left: auto; margin-right: auto; display: block; }
-      textarea.emscripten { font-family: monospace; width: 80%; }
       div.emscripten {  content: ""; clear: both; display: table; padding: 6px 6px; text-align: left, center; border: 1px solid #808080; background-color: #000000; width: 1268px; margin: 6px auto; margin-bottom: 0px; }
-      div.emscripten_border { border: 1px solid #808080; width: 1280px; height: 720px; margin: 0 auto; margin-top: 50px;}
+      div.emscripten_border {position: relative; border: 1px solid #808080; width: 1280px; height: 720px; margin: 0 auto; margin-top: 50px; text-align: center; background-color: #000000;}
       /* the canvas *must not* have any border or padding, or mouse coords will be wrong */
       canvas.emscripten { border: 0px none; background-color: black;}
       canvas.emscripten:active, canvas.emscripten:focus {outline: 0; -moz-outline-style: none;  outline-style: none; border: 0px none; background-color: black;}
-      p.lowertext {font-family: 'Courier New', monospace; color: #808080; font-size: 20px; font-style: italic;}
+      .lowertext {font-family: 'Courier New', monospace; color: #808080; font-size: 20px; font-style: italic;}
       
       .spinner {
         float:left;
@@ -52,12 +51,13 @@
   <body>
 
     <div class="emscripten_border">
+      <p id = "playtext"; style="color: #ffffff; font-size: 20px; font-style: italic; position: absolute; top: 50%;right: 50%; padding: 6px; border-radius: 8px; transform: translate(50%, -50%); font-family: 'Courier New', Courier, monospace;">Press Play to Start Webplayer</p>
       <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" width="1280", height="720" tabindex=-1></canvas>
     </div>
 
     <div class="emscripten">  
       <div id ="spinner" class="spinner" hidden="true"></div>
-      <input id = "playbutton" type="image" src="playbutton.png" title="Play" style="float: left;" onclick="spinnerElement.hidden=false; playElement.hidden=true; runmain();">
+      <input id = "playbutton" type="image" src="playbutton.png" title="Play" style="float: left;" onclick="spinnerElement.hidden=false; playtextElement.hidden=true; playElement.hidden=true; runmain();">
       <input id = "pausebutton" type="image" src="pausebutton.png" title="Pause" style="float: left;" hidden="true"; onclick="">
       <div id="status" style="float:left; padding: 3px 4px; font-family: 'Courier New', monospace; color: #ffffff; font-size: 20px;">Downloading...</div>
       <input type="image" src="fullscreen.png" title="Enter Fullscreen" style="float: right;" onclick="Module.requestFullscreen(false, true)">
@@ -75,6 +75,7 @@
       var spinnerElement = document.getElementById('spinner');
       var playElement = document.getElementById('playbutton');
       var pauseElement = document.getElementById('pausebutton');
+      var playtextElement = document.getElementById('playtext');
 
       var lockcursor = true;
       var Module = {
