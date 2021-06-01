@@ -448,7 +448,7 @@ function isDataURI(filename) {
 function isFileURI(filename) {
     return filename.startsWith("file://")
 }
-var wasmBinaryFile = "main.wasm";
+var wasmBinaryFile = "other.wasm";
 if (!isDataURI(wasmBinaryFile)) {
     wasmBinaryFile = locateFile(wasmBinaryFile)
 }
@@ -5088,6 +5088,10 @@ var asmLibraryArg = {
     "B": _glfwTerminate,
     "g": _glfwWindowHint
 };
+
+var haverunmain = false;
+function runmain(){
+if(!haverunmain){
 var asm = createWasm();
 var ___wasm_call_ctors = Module["___wasm_call_ctors"] = function () {
     return (___wasm_call_ctors = Module["___wasm_call_ctors"] = Module["asm"]["Y"]).apply(null, arguments)
@@ -5197,4 +5201,7 @@ if (Module["preInit"]) {
 }
 var shouldRunNow = true;
 if (Module["noInitialRun"]) shouldRunNow = false;
-run();
+run()
+    }
+    haverunmain = true;
+}
