@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'myfont';
+    src: url('fonts/Recursive_VF_1.078.woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body { 
+    position: absolute;
+    width: 1000px;
+    margin: 0 auto;
+    top: 0;
+    /* bottom: 0vh; */
+    min-height: 100%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background-color: hsl(309, 13%, 7%);
+    padding: 0px 0px 0px 0px;
+    border: 1px dotted #896d8d; 
+    border-top: 0px;
+    border-bottom: 0px;
+}
+
+canvas {
+    display: block;
+    position: relative;
+    left: 50%;
+    /* top: 50%; */
+    transform: translate(-50%, 0);
+    margin: 1.0% auto;
+    margin-bottom: 3.0%;
+    border: 1px solid #896d8d;
+    width: 1000px;
+    height: 666px;
+    background-color: #000000;
+}
+
+h1 {
+    font-family: 'myfont';
+    color: #896d8d;
+    text-align: center;
+    margin: 1.5% auto;
+    /* set variation axis values */
+    --mono: "MONO" 0;
+    /* Monospace: Sans (natural-width) or Mono (fixed-width) */
+    --casl: "CASL" 0.0;
+    /* Casual: Linear to Casual */
+    --wght: "wght" 388;
+    /* Weight: Light to ExtraBlack; usually set with `font-weight` */
+    --slnt: "slnt" 5;
+    /* Slant: 0 to -15 degrees, auto cursive at -14 */
+    --CRSV: "CRSV" 1;
+    /* Cursive: always roman, auto substitution, or always cursive */
+     
+    /* apply axis values with CSS custom properties */
+    font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV); 
+}
+
+h3 {
+    font-family: 'myfont';
+    color: #896d8d;
+    text-align: left;
+    margin: 2% 2%;
+    margin-bottom: 1.0%;
+    /* set variation axis values */
+    --mono: "MONO" 0;
+    /* Monospace: Sans (natural-width) or Mono (fixed-width) */
+    --casl: "CASL" 0.0;
+    /* Casual: Linear to Casual */
+    --wght: "wght" 310;
+    /* Weight: Light to ExtraBlack; usually set with `font-weight` */
+    --slnt: "slnt" 5;
+    /* Slant: 0 to -15 degrees, auto cursive at -14 */
+    --CRSV: "CRSV" 1;
+    /* Cursive: always roman, auto substitution, or always cursive */
+     
+    /* apply axis values with CSS custom properties */
+    font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV); 
+}
+
+p {
+    font-family: 'myfont';
+    color: #896d8d;
+    text-align: left;
+    margin: 0.5% 2%;
+    margin-top: 0.1%;
+    line-height: 1.5em;
+    /* set variation axis values */
+    --mono: "MONO" 0;
+    /* Monospace: Sans (natural-width) or Mono (fixed-width) */
+    --casl: "CASL" 0.0;
+    /* Casual: Linear to Casual */
+    --wght: "wght" 320;
+    /* Weight: Light to ExtraBlack; usually set with `font-weight` */
+    --slnt: "slnt" 5;
+    /* Slant: 0 to -15 degrees, auto cursive at -14 */
+    --CRSV: "CRSV" 1;
+    /* Cursive: always roman, auto substitution, or always cursive */
+     
+    /* apply axis values with CSS custom properties */
+    font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV); 
+}
+
+
+html {
+    height: 100%;
+    background-color: #0c0c0f;
+}

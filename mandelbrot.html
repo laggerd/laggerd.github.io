@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <title>Web Player</title>
+</head>
+
+<body>
+    <h1>Mandelbrot Viewer</h1>
+    
+    <canvas id="canvas" height="600px" width="1000px"></canvas>
+
+    <h3>Explore the Mandelbrot Set</h3>
+    <p>
+        Controls are <u>arrow keys to pan</u> and <u>W/S to zoom</u>. <br>Not particularly well optimized, and resolution is limited by 32 bit floats, but have fun!
+    </p>
+
+    <script type="module">
+        // var canvas = document.getElementById("canvas");
+        // canvas.oncontextmenu = function(e) { e.preventDefault(); e.stopPropagation(); }
+        import init from "./hello_window.js";
+        window.addEventListener("load", () => {
+        init();
+        });
+    </script>
+</body>
+
+</html>
