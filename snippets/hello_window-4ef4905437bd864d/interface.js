@@ -1,15 +1,15 @@
 export function check_function() {
-    console.log("f");
+    //console.log("f");
     return window.my_string;
 }
 
 export function check_coloring() {
-    console.log("k");
+    //console.log("k");
     return window.coloring_exponent;
 }
 
 export function check_iterations() {
-    console.log("c");
+    //console.log("c");
     return window.iterations;
 }
 
