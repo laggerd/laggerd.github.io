@@ -15,7 +15,7 @@
     <canvas id="canvas" height="600px" width="1000px"></canvas>
 
 
-    <div style="text-align: right; margin-right: 2%;"><p style="display: inline-block;">Iteration Equation: </p><input type="text" id="textbox" size="70" style="display: inline-block;" value = "z = p(z, 2) + c"></div>
+    <div style="text-align: right; margin-right: 2%;"><p style="display: inline-block;">Iteration Function: </p><input type="text" id="textbox" size="70" style="display: inline-block;" value = "z = p(z, 2) + c"></div>
     <div style="text-align: right; margin-right: 2%;"><p style="display: inline-block;">Coloring Exponent (set to the polynomial degree): </p><input type="number" id="coloring" size="70" style="display: inline-block;" value = "2"></div>
     <div style="text-align: right; margin-right: 2%;"><p style="display: inline-block;">Number of Iterations: </p><input type="number" id="iterations" size="70" style="display: inline-block;" value = "50"></div>
     <div style="text-align: right; margin-right: 2%; margin-bottom: 1.5%;"><button type="button" id="mybutton">Reload Shader</button></div>
@@ -29,24 +29,25 @@
 
     <h3>Function Writing Guide</h3>
     <p>
-        Write a valid <a href="https://www.w3.org/TR/WGSL/">WGSL</a> snippet that iterates z.<br>Here are some functions which you can use:
+        Write a valid <a href="https://www.w3.org/TR/WGSL/">WGSL</a> snippet that iterates z. See <b>Example Functions</b> for some of my favorties. <br>Here are some functions which you can use:
         <ul>
-            <li>m(a, b) .. multiply two complex numbers</li>
-            <li>p(a, [int]) .. raise a complex number to an integer power</li>
-            <li>d(a, b) .. divide a by b, both being a complex number</li>
-            <li>c .. parameter which depends on screen position</li>
-            <li>t .. time</li>
-            <li>vec2&ltf32>(r, i) .. declare a complex number with real component r, imaginary component i</li>
-            <li>abs(a) and many other WGSL functions are available</li>
+            <li>m(a, b) ---- <i>multiply two complex numbers</i></li>
+            <li>p(a, int)  ----  <i>raise a complex number to an integer power</i></li>
+            <li>d(a, b)  ----  <i>divide a by b, both being a complex number</i></li>
+            <li>c  ----  <i>position of the pixel on the complex plane</i></li>
+            <li>t  ----  <i>time</i></li>
+            <li>[r, i]  ----  <i>declare a complex number with real component r, imaginary component i</i></li>
+            <li>abs(a), sin(t), floor(t) and many other WGSL functions are also available</li>
         </ul>
     </p>
 
-    <h3>My Favorite Functions</h3>
+    <h3>Example Functions</h3>
     <p>
         <ul>
             <li>Mandelbrot Set: z = p(z, 2) + c</li>
-            <li>Twisted Details: z = d(p(z, 4), abs(p(z, 2))+vec2&ltf32>(1.0, 0.0)) + c</li>
-            <li>Butterfly Nexus: z = d(p(z, 3), z + vec2&ltf32>(0.01, 0.01)) + c</li>
+            <li>Burning Ship: z = p(abs(z), 2) + c</li>
+            <li>Twisted Details: z = d(p(z, 4), abs(p(z, 2))+[1.0, 0.0]) + c</li>
+            <li>Butterfly Nexus: z = d(p(z, 3), z + [0.01, 0.01]) + c</li>
         </ul>
     </p>
 
