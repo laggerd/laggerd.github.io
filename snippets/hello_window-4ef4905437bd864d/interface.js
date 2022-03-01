@@ -18,4 +18,9 @@ export function reset_function() {
     window.coloring_exponent = null;
     window.iterations = null;
 }
+
+export function send_function_error(err_string){
+    var ebox = document.getElementById("errorbox");
+    ebox.innerHTML = err_string;
+}
 //r= a(1 - e cos(E))
