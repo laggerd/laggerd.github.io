@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://laggerd.github.io/</loc>
+    </url>
+    <url>
+        <loc>https://laggerd.github.io/legacy/</loc>
+    </url>
+    <url>
+        <loc>https://laggerd.github.io/legacy/keepup/</loc>
+        <lastmod>2022-07-01</lastmod>
+    </url>
+    <url>
+        <loc>https://laggerd.github.io/posts/</loc>
+    </url>
+    <url>
+        <loc>https://laggerd.github.io/posts/keepup/</loc>
+        <lastmod>2022-07-01</lastmod>
+    </url>
+    <url>
+        <loc>https://laggerd.github.io/posts/mandelmaker/</loc>
+        <lastmod>2022-07-03</lastmod>
+    </url>
+    <url>
+        <loc>https://laggerd.github.io/posts/safetravels/</loc>
+        <lastmod>2022-07-02</lastmod>
+    </url>
+    <url>
+        <loc>https://laggerd.github.io/posts/welcome/</loc>
+        <lastmod>2022-07-01</lastmod>
+    </url>
+    <url>
+        <loc>https://laggerd.github.io/snippets/hello_window-4ef4905437bd864d/</loc>
+    </url>
+</urlset>

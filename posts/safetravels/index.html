@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://laggerd.github.io/lpages.css">
+    <meta charset="utf-8">
+    <title>
+Safe Travels - First Rust game demo
+</title>
+</head>
+
+<body>
+    <section class = "section">
+        <div class = "container">
+                <div class="borders">
+                </div>
+                <div class="centerbar">
+                
+<div class = "topbox">
+  <div class = "imgcont">
+    <img class = "topimg" src = https://laggerd.github.io/safetrav.png>
+  </div>
+  <h1 class=blogheader>
+    <i>Safe Travels</i> &mdash; First Rust game demo
+  </h1>
+</div>
+
+
+<p class="subtitle"><em>2022-07-02</em></p>
+
+<script type="module">
+    import init from "/graphics.js";
+    var button = document.getElementById("sbt")
+    var canvas = document.getElementById("canvas")
+    var border = document.getElementById("playerborder")
+    var stf = function () {if(!window.started){init(); window.started=true; button.style.display='none'; playerborder.style.border = 'none'}};
+    canvas.onclick = stf;
+    button.onclick = stf;
+</script>
+<div class="player", id="playerborder">
+<canvas id="canvas" class="playercanvas">
+</canvas>
+<p id="sbt" class="sbt">click to start</p>
+</div><br>
+<p><span class="cw">CW: Physical violence; Colorful fractals in motion</span></p>
+<ul>
+<li>
+<p>Controls:</p>
+<ul>
+<li><span class="cw">P</span> for fullscreen</li>
+<li><span class="cw">Mouse</span> for look. </li>
+<li><span class="cw">WASD</span> for movement. </li>
+<li><span class="cw">Left Click</span> for punch. </li>
+<li><span class="cw">I</span> to increase mouse sensitivity</li>
+<li><span class="cw">U</span> to decrease mouse sensitivity</li>
+</ul>
+</li>
+<li>
+<p>Performance Issues?</p>
+<ul>
+<li>Firefox seems to have significantly worse WebGL performance and occasional issues with fullscreening. Try Edge or Chrome</li>
+</ul>
+</li>
+</ul>
+<hr></hr>
+<h3 id="safe-travels"><i>Safe Travels</i></h3>
+<p>Protect a mysterious traveler as they make their way home.</p>
+<p>  —</p>
+<p>After learning how to use wgpu with Rust, this was my first attempt at making a playable game. Originally a standalone executable, I later adapted it to run on the web through WASM.</p>
+
+
+
+<a class="link" href = "https://laggerd.github.io">Back to Home</a>
+
+
+
+                </div>
+                <!-- <img class="sona" src="https://laggerd.github.io/wwqqqqqnewnose.png"> -->
+        </div>
+    </section>
+</body>
+
+</html>

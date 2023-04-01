@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://laggerd.github.io/lpages.css">
+    <meta charset="utf-8">
+    <title>
+MandelMaker - Explore the fractals of iterated functions
+</title>
+</head>
+
+<body>
+    <section class = "section">
+        <div class = "container">
+                <div class="borders">
+                </div>
+                <div class="centerbar">
+                
+<div class = "topbox">
+  <div class = "imgcont">
+    <img class = "topimg" src = https://laggerd.github.io/zimage.png>
+  </div>
+  <h1 class=blogheader>
+    <i>MandelMaker</i> &mdash; Explore the fractals of iterated functions
+  </h1>
+</div>
+
+
+<p class="subtitle"><em>2022-07-03</em></p>
+
+<script type="module">
+    import init from "/hello_window.js";
+    var sbutton = document.getElementById("sbt")
+    var border = document.getElementById("playerborder")
+    var canvas = document.getElementById("canvas");
+        
+    var button = document.getElementById("mybutton");
+    button.addEventListener('click', function(){
+        var phrase = document.getElementById("textbox").value;
+        var coloring = String(document.getElementById("coloring").value);
+        var iters = String(document.getElementById("iterations").value);
+
+        window.my_string = phrase;
+        window.coloring_exponent = coloring;
+        window.iterations = iters;
+    });
+
+    window.my_string = null;
+    window.coloring_exponent = null;
+    window.iterations = null;
+
+    console.log(window.my_string);
+
+    var stf = function () {if(!window.started){init(); window.started=true; sbutton.style.display='none'; playerborder.style.border = 'none'}};
+    canvas.onclick = stf;
+    sbutton.onclick = stf;
+</script>
+<div class="player", id="playerborder">
+<canvas id="canvas" class="playercanvas">
+</canvas>
+<p id="sbt" class="sbt">click to start</p>
+</div><br>
+<div style="text-align: right; margin-right: 2%;"><p style="display: inline-block;">Iteration Function: </p><textarea  type="text" id="textbox" style="display: inline-block; width: 500px;">z = p(z, 2) + c</textarea></div>
+    <div style="text-align: right; margin-right: 2%;"><p style="display: inline-block;">Coloring Exponent (set to the polynomial degree): </p><input type="number" id="coloring" style="display: inline-block; width: 100px; max-width: 20%;" value = "2"></div>
+    <div style="text-align: right; margin-right: 2%;"><p style="display: inline-block;">Number of Iterations: </p><input type="number" id="iterations" style="display: inline-block; width: 100px; max-width: 20%;" value = "50"></div>
+    <div style="text-align: right; margin-right: 2%; margin-bottom: 1.5%;"><button type="button" id="mybutton">Reload Shader</button></div>
+    <p id="errorbox" style="color: red; text-align:center;"></p>
+<p><span class="cw">CW: Intricate color patterns; No flashing in my own testing, but graphics hardware varies</span></p>
+<ul>
+<li>
+<p>Controls:</p>
+<ul>
+<li><span class="cw">Arrow Keys</span> to pan around</li>
+<li><span class="cw">W/S</span> to zoom in/zoom out. </li>
+<li><span class="cw">A/D</span> to rotate. </li>
+<li><span class="cw">P</span> for fullscreen. </li>
+</ul>
+</li>
+<li>
+<p>Function Writing Guide</p>
+<ul>
+<li>complex and real numbers <span class="cw"> must be written with a decimal point</span>, integers must be written without a decimal point</li>
+<li><span class="cw">m(a, b)</span> — <i>multiply two complex numbers</i></li>
+<li><span class="cw">p(a, int)</span>  —  <i>raise a complex number to an integer power</i></li>
+<li><span class="cw">d(a, b)</span>  —  <i>divide a by b, both being a complex number</i></li>
+<li><span class="cw">s(a, b)</span>  —  <i>an operation I accidentally made which reduces degree, like division, but behaves differently. be careful not to let c == d at every point. You may have to initialize z to something.</i>
+<ul>
+<li>s(a + bi, c + di) =  ((ac + bd) + i(bc - ad))/(c<sup>2</sup> - d<sup>2</sup>)</li>
+</ul>
+</li>
+<li><span class="cw">c</span>  —  <i>position of the pixel on the complex plane</i></li>
+<li><span class="cw">t</span>  —  <i>time</i></li></li>
+<li><span class="cw">i</span>  —  <i>iteration</i></li></li>
+<li><span class="cw">[r, i]</span>  —  <i>declare a complex number with real component r, imaginary component i</i></li>
+<li><span class="cw">abs(..), sin(..), floor(..), length(..)</span> and many other WGSL functions are also available</li>
+<li>adding a real number to a complex number will add to both components of the complex number ( [b, c] + a = [b + a, c + a] ) </li>
+</ul>
+</li>
+<li>
+<p>Performance Issues?</p>
+<ul>
+<li>Firefox seems to have significantly worse WebGL performance and occasional issues with fullscreening. Try Edge or Chrome</li>
+</ul>
+</li>
+</ul>
+<hr></hr>
+<h3 id="mandelmaker"><i>MandelMaker</i></h3>
+<p>I created this project to learn how to write an application in Rust to run on the web. Using WebGL through wgpu, the program generates fractals on the GPU for a user specified iteration function. Not using any fancy tricks like perturbation techniques or anything to speed it up though.</p>
+<h3 id="example-functions">Example Functions</h3></h3>
+<ul>
+<li>Mandelbrot Set: z = p(z, 2) + c</li>
+<li>Burning Ship: z = p(abs(z), 2) + c</li>
+<li>Twisted Details: z = s(p(z, 4), abs(p(z, 2))+[1.0, 0.0]) + c</li>
+<li>Butterfly Nexus: if(i == 0u){z = c;} z = s(p(z, 3), z + [0.01, 0.01]) + c</li>
+</ul>
+<div class="showcasecontainer">
+<img src="/mandel.jpg" alt="mandelbrot section" class="showcaseimg">
+<img src="/twist.jpg" alt="twisted details section" class="showcaseimg">
+<img src="/butterfly.jpg" alt="butterfly nexus section" class="showcaseimg">
+</div>
+
+
+<a class="link" href = "https://laggerd.github.io">Back to Home</a>
+
+
+
+                </div>
+                <!-- <img class="sona" src="https://laggerd.github.io/wwqqqqqnewnose.png"> -->
+        </div>
+    </section>
+</body>
+
+</html>
