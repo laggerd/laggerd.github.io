@@ -1,0 +1,97 @@
+.index-body {
+    background-image: url("content/Salp.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.tape-body {
+    /* overflow: hidden; */
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-image: url("content/IBM_729_side_exposed_small.png");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    animation: scrollBG 200s linear infinite;
+    background-size: 25vh 18.75vh;
+    image-rendering: smooth;
+
+}
+
+.centered-content {
+    position: relative;
+    z-index: 100;
+    border: solid .5vh black;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: 1vh auto 1vh auto;
+    font-size: larger;
+    
+    padding: 1vh;
+    width: 70vh;
+}
+
+.drive-row {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 200vw;
+    background-image: url("content/drivebanks.png");
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    image-rendering: smooth;
+}
+
+.drive-row-pos-one {
+    position: fixed;
+    top: 60vh;
+    height: 15.5vh;
+    animation: scrollRow 120s linear infinite;
+    z-index: 6;
+    left: -67vh;
+}
+
+
+.drive-row-pos-two {
+    position: fixed;
+    top: 65vh;
+    height: 23.25vh;
+    animation: scrollRow 80s linear infinite;
+    z-index: 8;
+    left: -30vh;
+}
+
+.drive-row-pos-three {
+    position: fixed;
+    top: 70vh;
+    height: 46.5vh;
+    z-index: 10;
+    animation: scrollRow 40s linear infinite;
+    left: -10vh;
+}
+
+@keyframes scrollBG {
+    0% {
+    background-position: 0 0;
+    }
+    100% {
+        background-position: 50.0vh -75vh; 
+    }
+}
+
+@keyframes scrollRow {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -119.3vh 0; 
+  }
+}
+
+.center-col-canvas {
+    height: 50vh !important; 
+    outline-style: none;
+    width: calc(100% - 10vh) !important;
+    margin: 1vh auto 1vh auto !important;
+    border: solid black .5vh !important;
+}
